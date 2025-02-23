@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    print("IP:", request.remote_addr)
+    print("IP:", request.headers.get("X-Forwarded-For", request.remote_addr))
     return redirect("https://medal.tv/games/garrys-mod/clips/jJT6mWGLcso7ZrJje?invite=cr-MSxqQzMsMzIxNDQyNjUwLA")
 
 if __name__ == "__main__":
